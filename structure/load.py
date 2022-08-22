@@ -1,5 +1,6 @@
 import csv
 from collections import namedtuple
+from rich.progress import track
 
 
 def load_csv():
@@ -9,6 +10,6 @@ def load_csv():
     with open(csv_file, 'r') as file:
         reader = csv.DictReader(file)
         Marvel = namedtuple('Marvel', reader.fieldnames)
-        marvel_data = [Marvel(**row) for row in reader]
+        marvel_data = [Marvel(**row) for row in track(reader, description='Loading Marvel Data', total=100)]
         file.close()
     return marvel_data
