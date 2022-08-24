@@ -25,11 +25,11 @@ def choose_option():
     return option
 
 def imput_text():
-    text = Prompt.ask('Enter your search: ')
+    text = Prompt.ask('Enter your search')
     return text
 
-def table_maker(data, title):
-    table = Table(title=title.title(), show_header=True,
+def table_maker(data):
+    table = Table(title="Marvel", show_header=True,
                   header_style="bold magenta", box=box.DOUBLE_EDGE, show_lines=True)
     for col in data[0]._fields:
         table.add_column(col.replace("_", " ").title())
