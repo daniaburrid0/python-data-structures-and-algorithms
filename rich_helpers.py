@@ -24,6 +24,9 @@ def choose_option():
                         "1", "2", "3", "4", "5"], show_choices=False)
     return option
 
+def imput_text():
+    text = Prompt.ask('Enter your search: ')
+    return text
 
 def table_maker(data, title):
     table = Table(title=title.title(), show_header=True,
