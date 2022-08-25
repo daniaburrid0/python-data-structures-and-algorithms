@@ -1,4 +1,5 @@
 import re
+from unittest import result
 from rich.prompt import Prompt
 
 def search(data, option, text):
@@ -22,4 +23,18 @@ def auto_complete(data, option, text):
                     break
                 else:
                     continue
-    return complete        
+    return complete
+
+def option_to_idx(option):
+    match option:
+        case "1":
+            return 0
+        case "2":
+            return 2
+        case "3":
+            return 6
+        case "4":
+            return 5
+        case "5":
+            return -1
+    
