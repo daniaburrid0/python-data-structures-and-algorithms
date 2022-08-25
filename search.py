@@ -13,15 +13,17 @@ def search(data, option, text):
 def auto_complete(data, option, text):
     complete = ""
     mem = None
+    decline = []
     for row in data:
         if mem != row[option]:
             mem = row[option]    
-            if row[option].startswith(text.title()):
+            if row[option].startswith(text.title()) and row[option] not in decline:
                 confirm = Prompt.ask("Did you mean {}?".format(row[option]), choices=["y", "n"])
                 if confirm == "y":
                     complete = row[option]
                     break
                 else:
+                    decline.append(row[option])
                     continue
     return complete
 
