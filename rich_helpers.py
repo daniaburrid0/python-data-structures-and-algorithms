@@ -24,9 +24,11 @@ def choose_option():
                         "1", "2", "3", "4", "5"], show_choices=False)
     return option
 
+
 def imput_text():
     text = Prompt.ask('Enter your search')
     return text
+
 
 def table_maker(data):
     table = Table(title="Marvel", show_header=True,
@@ -40,14 +42,35 @@ def table_maker(data):
     console = Console()
     console.print(table)
 
+
 def bye():
     bye = Text("\nThank you for using this program.\n")
     bye.stylize("bold magenta")
     console = Console()
     console.print(bye)
-    
+
+
 def no_result():
     no_result = Text("\nNo result found.\n")
     no_result.stylize("bold magenta")
     console = Console()
     console.print(no_result)
+
+
+def bigger_than_10():
+    bigger = Text("\nPrinting 10 results.\n")
+    bigger.stylize("bold magenta")
+    console = Console()
+    console.print(bigger)
+
+
+def continue_printing():
+    con = Prompt.ask("Do you want to print more results?", choices=["y", "n"])
+    return con
+
+
+def last_result():
+    last = Text("\nPrinting last result.\n")
+    last.stylize("bold magenta")
+    console = Console()
+    console.print(last)

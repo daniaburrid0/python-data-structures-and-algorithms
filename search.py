@@ -2,6 +2,7 @@ import re
 from unittest import result
 from rich.prompt import Prompt
 
+
 def search(data, option, text):
     result = []
     text_complete = auto_complete(data, option, text)
@@ -10,15 +11,17 @@ def search(data, option, text):
             result.append(row)
     return result
 
+
 def auto_complete(data, option, text):
     complete = ""
     mem = None
     decline = []
     for row in data:
         if mem != row[option]:
-            mem = row[option]    
+            mem = row[option]
             if row[option].startswith(text.title()) and row[option] not in decline:
-                confirm = Prompt.ask("Did you mean {}?".format(row[option]), choices=["y", "n"])
+                confirm = Prompt.ask("Did you mean {}?".format(
+                    row[option]), choices=["y", "n"])
                 if confirm == "y":
                     complete = row[option]
                     break
@@ -26,6 +29,7 @@ def auto_complete(data, option, text):
                     decline.append(row[option])
                     continue
     return complete
+
 
 def option_to_idx(option):
     match option:
@@ -39,4 +43,3 @@ def option_to_idx(option):
             return 5
         case "5":
             return -1
-    
